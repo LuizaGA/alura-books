@@ -7,6 +7,18 @@
   display: inline-block;
 }
 
+.container__botao:checked ~ .container__rotulo > .cabecalho__menu-hamburger {
+  background-image: url('../img/Menu\ Aberto.svg');
+}
+
+/* Esse combinador do til (~), ele procura algum outro elemento que esteja em seguida dele, que tem aquela classe, então, o que aconteceu aqui? Ele procurou outro elemento que tivesse a classe .container__rotulo, que fosse depois do container__botão, aí ele encontrou nosso label.
+Depois do label botamos um sinal de maior que (>), o sinal  procura algo que está dentro deste elemento. Ou seja, temos um label e dentro dele tem um .cabeçalho__menu-hanburguer. Então foi isso que ele fez, ele foi pegar lá dentro o elemento que fosse cabeçalho, menu hambúrguer. */
+
+.container__botao:checked ~ .container__rotulo {
+  background: var(--azul-degrade);
+}
+
+
 .cabecalho {
   background-color: var(--branco);
   display: flex;
@@ -114,6 +126,24 @@
 
   .opcoes__botao {
     display: none;
+  }
+
+  .opcoes__botao:checked ~ .opcoes__rotulo > .opcoes__item {
+    background: var(--azul-degrade);
+    color: var(--branco);
+  }
+
+  .opcoes__item {
+    padding: 2em 1em;
+  }
+
+  .lista-menu__item:hover {
+    background: var(--azul-degrade);
+  }
+
+  .lista-menu__item:hover > .lista-menu__link {
+    -webkit-text-fill-color: var(--branco);
+    text-decoration: none;
   }
 }
 
